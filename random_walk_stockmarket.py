@@ -34,8 +34,6 @@ class RandomWalk:
             # Calculate the new position.
             x = self.x_values[-1] + x_step
             y = self.y_values[-1] + y_step
-            """if y<=0:
-                continue"""
 
             self.x_values.append(x)
             self.y_values.append(y)
