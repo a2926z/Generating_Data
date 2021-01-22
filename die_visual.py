@@ -8,7 +8,7 @@ die_2 = Die()
 
 # Make some rolls, and store results in a list.
 results = []
-roll_times = 1000000
+roll_times = 10000
 for roll_num in range(roll_times):
     result = die_1.roll() + die_2.roll()
     results.append(result)
@@ -22,9 +22,9 @@ for value in range(2, max_result+1):
 
 Perc = []
 for xyz in frequencies:
-    perc = (xyz/sum(frequencies))*100
+    perc = ((xyz/sum(frequencies))*100).__round__(2)
     Perc.append(perc)
-    print(perc.__round__(2))
+    print(len(Perc)+1, str(perc.__round__(2)) + " %")
 
 # Visualize the results.
 x_values = list(range(2, max_result+1))
@@ -37,6 +37,3 @@ y_axis_config = {'title': ('Frequency of rolling ' + str(roll_times) + ' times')
 my_layout = Layout(title='Results of rolling two D6 ' + str(roll_times) + ' times',
                    xaxis=x_axis_config, yaxis=y_axis_config)
 offline.plot({'data': data, 'layout': my_layout}, filename='d6_d6.html')
-
-print(results)
-print(frequencies)
